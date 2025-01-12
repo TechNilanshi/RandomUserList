@@ -14,6 +14,8 @@ import com.example.randomuserapp.domain.model.Street
 import com.example.randomuserapp.domain.model.Timezone
 import com.example.randomuserapp.domain.model.User
 import com.example.randomuserapp.domain.repository.RandomUserListRepository
+import io.mockk.mockk
+import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
@@ -24,12 +26,11 @@ import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mockito.mock
 
 @ExperimentalCoroutinesApi
 class UserRepositoryTest {
     private lateinit var userRepository: RandomUserListRepository
-    private val mockApiService: ApiService = mock()
+    private val mockApiService: ApiService = mockk()
 
     private val testDispatcher = StandardTestDispatcher()
 
@@ -52,35 +53,35 @@ class UserRepositoryTest {
                 gender = "male",
                 name = Name("Mr", "John $it", "Doe"),
                 location = Location(
-                    Street(123, "Main St"),
+                    Street(123, ""),
                     "City $it",
                     "State $it",
                     "Country",
-                    "12345",
-                    Coordinates("0.0", "0.0"),
-                    Timezone("+1:00", "UTC+1")
+                    "",
+                    Coordinates("", ""),
+                    Timezone("", "")
                 ),
-                email = "john$it.doe@example.com",
+                email = "",
                 login = Login(
-                    uuid = "uuid-$it",
-                    username = "user$it",
-                    password = "password",
-                    salt = "salt",
-                    md5 = "md5",
-                    sha1 = "sha1",
-                    sha256 = "sha256"
+                    uuid = "",
+                    username = "",
+                    password = "",
+                    salt = "",
+                    md5 = "",
+                    sha1 = "",
+                    sha256 = ""
                 ),
-                dob = DOB("2000-01-01T00:00:00.000Z", 23),
-                registered = Registered("2020-01-01T00:00:00.000Z", 3),
-                phone = "123-456-7890",
-                cell = "123-456-7890",
-                id = ID("ID", "12345"),
+                dob = DOB("", 23),
+                registered = Registered("", 3),
+                phone = "",
+                cell = "",
+                id = ID("", ""),
                 picture = Picture(
                     large = "https://example.com/large.jpg",
                     medium = "https://example.com/medium.jpg",
                     thumbnail = "https://example.com/thumb.jpg"
                 ),
-                nat = "US"
+                nat = ""
             )
         }
 
@@ -95,8 +96,6 @@ class UserRepositoryTest {
         // Assert: Verify the emitted PagingData contains the mocked data
         assert(result.isNotEmpty())
         val pagingData = result.first()
-    /*    val items = pagingData.toList()
-        assertEquals(50, items.size)
-        assertEquals("John 1", items.first().name.first)*/
+
     }
 }

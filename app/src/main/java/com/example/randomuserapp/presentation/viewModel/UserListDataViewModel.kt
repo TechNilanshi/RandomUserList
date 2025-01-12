@@ -19,7 +19,6 @@ class UserListDataViewModel @Inject constructor(private val randomUserListReposi
     val usersFlow = randomUserListRepository.fetchUsers()
         .cachedIn(viewModelScope) // Cache data in memory while the ViewModel is active
 
-
     /* init {
          fetchUsers()
      }

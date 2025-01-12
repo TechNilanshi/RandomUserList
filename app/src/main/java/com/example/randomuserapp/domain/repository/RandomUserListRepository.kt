@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface RandomUserListRepository {
    // fun fetchUsers(): Flow<List<User>>
    // fun fetchUsers(page: Int, pageSize: Int): Flow<PagingData<User>>
-
   fun fetchUsers(): Flow<PagingData<User>>
+
 
 }

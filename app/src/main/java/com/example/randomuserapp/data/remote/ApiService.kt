@@ -6,9 +6,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("?results=5000")
-    suspend fun getApiResponse(@Query("page") page: Int,
-                               @Query("pageSize") pageSize: Int):ApiResponse
-
+   // https://randomuser.me/api/?page=3&results=10&seed=abc
+    @GET("api/?")
+    suspend fun getApiResponse(
+        @Query("page") page: Int,
+        @Query("results") results: Int,
+        @Query("seed") seed: String = "abc"
+    ): ApiResponse
 
 }

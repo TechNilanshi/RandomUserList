@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,7 +34,6 @@ import com.example.randomuserapp.R
 import com.example.randomuserapp.domain.model.User
 import com.example.randomuserapp.presentation.viewModel.UserListDataViewModel
 
-// Display the user list using LazyColumn
 @SuppressLint("SuspiciousIndentation")
 @Composable
 fun UserList(navController: NavController,viewModel: UserListDataViewModel = hiltViewModel(), onUserClick: (User) -> Unit) {

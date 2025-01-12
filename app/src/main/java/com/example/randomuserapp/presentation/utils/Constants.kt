@@ -1,6 +1,8 @@
 package com.example.randomuserapp.presentation.utils
 
 object Constants {
-    const val BASE_URL = "https://randomuser.me/api/?"
+
+   // https://randomuser.me/api/?page=3&results=10&seed=abc
+    const val BASE_URL = "https://randomuser.me/"
 
 }
